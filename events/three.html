@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+ 
+    let intervalId;
+    const body=document.querySelector('body');
+
+       const changebgcolor=function(){
+        body.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        console.log("bg color changed");
+        console.log(body.style.backgroundColor);
+    }
+
+    document.getElementById('start').addEventListener('click', function(e){  
+     intervalId = setInterval(changebgcolor, 1000,);
+    }, false);
+    
+    document.getElementById('stop').addEventListener('click', function(e){
+        clearInterval(intervalId);
+        intervalId = null;
+        console.log("stopped");
+        body.style.backgroundColor = 'white'; // Reset to white when stopped
+    }, false);
+    
+</script>
+</html>
